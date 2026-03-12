@@ -21,6 +21,7 @@ The goal of this project was to practice React concepts such as components, rout
 * Responsive layout
 * React Router navigation
 * Context API for cart and auth
+* Ratings and reviews
 
 ---
 
@@ -88,6 +89,7 @@ The app will run at:
 http://localhost:3000
 
 ---
+<img width="950" height="473" alt="image" src="https://github.com/user-attachments/assets/0f251682-74a5-47fb-b9cf-3e3acd6f42fc" />
 
 ## How Login Works
 
