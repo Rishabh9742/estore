@@ -268,3 +268,27 @@ body.dark input {
   color: white;
   border: 1px solid #555;
 }
+.home-layout {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  padding: 10px;
+  background: #ddd;
+}
+
+.sidebar button {
+  display: block;
+  margin: 5px;
+  width: 100%;
+}
+
+.main {
+  flex: 1;
+}
+
+body.dark .sidebar {
+  background: #222;
+  color: white;
+}

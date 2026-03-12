@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
+import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import ProductDetails from "./pages/ProductDetails";
@@ -24,7 +24,14 @@ function App() {
 
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/checkout" element={<Checkout />} />
+          <Route
+      path="/checkout"
+      element={
+        <ProtectedRoute>
+          <Checkout />
+        </ProtectedRoute>
+      }
+    />
       </Routes>
 
       <Footer />
