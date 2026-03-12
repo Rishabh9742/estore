@@ -7,7 +7,22 @@ function ProductCard({ product }) {
   const { addToCart } =
     useContext(CartContext);
 
+
+  // rating values
+  const rating =
+    product.rating?.rate || 0;
+
+  const count =
+    product.rating?.count || 0;
+
+  // create stars
+  const stars = "⭐".repeat(
+    Math.round(rating)
+  );
+
+
   return (
+
     <div className="card">
 
       <img src={product.image} alt="" />
@@ -15,6 +30,22 @@ function ProductCard({ product }) {
       <h3>{product.name}</h3>
 
       <p>${product.price}</p>
+
+
+      {/* ⭐ Rating */}
+
+      <p className="rating">
+
+        {stars} ({rating}/5)
+
+      </p>
+
+      <p className="reviews">
+
+        {count} reviews
+
+      </p>
+
 
       <button
         onClick={() =>
@@ -24,6 +55,7 @@ function ProductCard({ product }) {
         Add
       </button>
 
+
       <Link
         to={"/product/" + product.id}
       >
@@ -31,6 +63,7 @@ function ProductCard({ product }) {
       </Link>
 
     </div>
+
   );
 }
 

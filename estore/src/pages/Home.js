@@ -13,10 +13,12 @@ function Home() {
     getProducts().then(setProducts);
   }, []);
 
+
   const categories = [
     "all",
     ...new Set(products.map(p => p.category))
   ];
+
 
   const filtered = products.filter(p => {
 
@@ -32,6 +34,7 @@ function Home() {
     return matchSearch && matchCategory;
 
   });
+
 
   return (
 
@@ -63,6 +66,7 @@ function Home() {
 
         <SearchBar setSearch={setSearch} />
 
+
         <div className="container">
 
           {filtered.map(p => (
@@ -73,7 +77,8 @@ function Home() {
                 id: p.id,
                 name: p.title,
                 price: p.price,
-                image: p.image
+                image: p.image,
+                rating: p.rating   // ✅ added
               }}
             />
 

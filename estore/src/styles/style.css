@@ -292,3 +292,24 @@ body.dark .sidebar {
   background: #222;
   color: white;
 }
+.details {
+  padding: 20px;
+  text-align: center;
+}
+
+.details img {
+  margin-bottom: 10px;
+}
+
+.rating {
+  color: gold;
+}
+
+.reviews {
+  color: gray;
+}
+
+body.dark .details {
+  background: #111;
+  color: white;
+}

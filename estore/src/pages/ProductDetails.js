@@ -1,28 +1,57 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState, useContext } from "react";
+
+import { getProducts } from "../api/productsApi";
+import { CartContext } from "../context/CartContext";
 
 function ProductDetails() {
 
   const { id } = useParams();
 
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] =
+    useState(null);
+
+  const { addToCart } =
+    useContext(CartContext);
+
 
   useEffect(() => {
-    axios
-      .get(`https://fakestoreapi.com/products/${id}`)
-      .then(res => setProduct(res.data));
+
+    getProducts().then(data => {
+
+      const found =
+        data.find(
+          p => p.id === Number(id)
+        );
+
+      setProduct(found);
+
+    });
+
   }, [id]);
 
-  // important check
+
   if (!product) {
     return <h2>Loading...</h2>;
   }
 
-  return (
-    <div>
 
-      <h2>{product.title}</h2>
+  // rating
+  const rating =
+    product.rating?.rate || 0;
+
+  const count =
+    product.rating?.count || 0;
+
+  const stars =
+    "⭐".repeat(
+      Math.round(rating)
+    );
+
+
+  return (
+
+    <div className="details">
 
       <img
         src={product.image}
@@ -30,11 +59,45 @@ function ProductDetails() {
         width="200"
       />
 
-      <p>Price: ${product.price}</p>
+      <h2>{product.title}</h2>
+
+      <p>${product.price}</p>
+
+
+      {/* rating */}
+
+      <p className="rating">
+
+        {stars} ({rating}/5)
+
+      </p>
+
+      <p className="reviews">
+
+        {count} reviews
+
+      </p>
+
 
       <p>{product.description}</p>
 
+
+      <button
+        onClick={() =>
+          addToCart({
+            id: product.id,
+            name: product.title,
+            price: product.price,
+            image: product.image,
+            rating: product.rating
+          })
+        }
+      >
+        Add to Cart
+      </button>
+
     </div>
+
   );
 }
 
