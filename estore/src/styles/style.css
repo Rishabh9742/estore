@@ -118,3 +118,24 @@ body {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+.search {
+  width: 300px;
+  padding: 8px;
+  margin: 10px;
+}
+
+.form {
+  width: 300px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.form input {
+  margin: 5px;
+  padding: 8px;
+}
+
+.form button {
+  padding: 8px;
+}
