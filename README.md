@@ -90,6 +90,9 @@ http://localhost:3000
 
 ---
 <img width="950" height="473" alt="image" src="https://github.com/user-attachments/assets/0f251682-74a5-47fb-b9cf-3e3acd6f42fc" />
+<img width="954" height="467" alt="image" src="https://github.com/user-attachments/assets/93776b7b-4128-469e-85ca-e3ba02eac10c" />
+<img width="959" height="109" alt="image" src="https://github.com/user-attachments/assets/ad8da130-64ad-4544-8873-e7281913bb54" />
+<img width="959" height="143" alt="image" src="https://github.com/user-attachments/assets/f850a9d3-bfa6-49ee-ae1d-f4dee7575185" />
 
 ## How Login Works
 
