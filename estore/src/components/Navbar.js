@@ -1,17 +1,34 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+
 import { CartContext } from "../context/CartContext";
+import { AuthContext } from "../context/AuthContext";
 
 function Navbar() {
 
   const { cart } = useContext(CartContext);
+  const { user, logout } = useContext(AuthContext);
+
+  const [dark, setDark] = useState(false);
+
+  const toggleTheme = () => {
+    setDark(!dark);
+
+    document.body.classList.toggle("dark");
+  };
 
   return (
+
     <nav className="nav">
 
-      <h2>E-Store</h2>
+      {/* Logo */}
+      <h2 className="logo">
+        <Link to="/">E-Store</Link>
+      </h2>
 
-      <div>
+
+      {/* Links */}
+      <div className="nav-links">
 
         <Link to="/">Home</Link>
 
@@ -19,17 +36,60 @@ function Navbar() {
           Cart ({cart.length})
         </Link>
 
-        <Link to="/login">
-          Login
+        <Link to="/checkout">
+          Checkout
         </Link>
 
-        <Link to="/signup">
-          Signup
-        </Link>
+
+        {/* Auth section */}
+
+        {user ? (
+
+          <>
+
+            <span className="user">
+              {user}
+            </span>
+
+            <button
+              onClick={logout}
+              className="btn"
+            >
+              Logout
+            </button>
+
+          </>
+
+        ) : (
+
+          <>
+
+            <Link to="/login">
+              Login
+            </Link>
+
+            <Link to="/signup">
+              Signup
+            </Link>
+
+          </>
+
+        )}
+
+
+        {/* Dark mode */}
+
+        <button
+          onClick={toggleTheme}
+          className="btn"
+        >
+          {dark ? "Light" : "Dark"}
+        </button>
 
       </div>
 
     </nav>
+
   );
 }
 

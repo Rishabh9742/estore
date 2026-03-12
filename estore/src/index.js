@@ -1,15 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import "./styles/style.css";
+
 import { CartProvider } from "./context/CartContext";
+import { AuthProvider } from "./context/AuthContext";
+
+import "./styles/style.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root")
 );
 
 root.render(
-  <CartProvider>
-    <App />
-  </CartProvider>
+  <AuthProvider>
+    <CartProvider>
+      <App />
+    </CartProvider>
+  </AuthProvider>
 );
