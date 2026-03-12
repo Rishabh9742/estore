@@ -1,31 +1,40 @@
-# React E-Store Project
+# E-Store React Project
 
-This project is a simple e-commerce store built using React.
-The goal of this project was to practice React concepts such as components, routing, state management, and Context API while creating a small online store interface.
+This project is a simple e-commerce web application built using React.
+It allows users to browse products, search items, filter by category, add products to cart, and complete checkout after logging in.
 
-The application allows users to view products, add them to the cart, remove items, and see the total price.
-It also includes navigation between pages using React Router.
+The goal of this project was to practice React concepts such as components, routing, context API, API calls, authentication logic, and state management.
+
+---
 
 ## Features
 
-* Product listing page
-* Product details page
-* Add to cart functionality
+* Product list loaded from FakeStore API
+* Search products by name
+* Filter products by category
+* Add to cart
 * Remove from cart
-* Total price calculation
-* Navigation using React Router
-* Context API for cart state management
-* Responsive layout using CSS
-* Simple and clean UI design
+* Cart saved in LocalStorage
+* Login and Signup pages
+* Protected checkout page (login required)
+* Dark mode toggle
+* Responsive layout
+* React Router navigation
+* Context API for cart and auth
+
+---
 
 ## Technologies Used
 
 * React
-* JavaScript
-* React Router DOM
+* React Router
 * Context API
+* JavaScript
 * CSS
-* HTML
+* FakeStore API
+* LocalStorage
+
+---
 
 ## Project Structure
 
@@ -34,17 +43,23 @@ components/
 Navbar.js
 Footer.js
 ProductCard.js
+SearchBar.js
+ProtectedRoute.js
+
+context/
+CartContext.js
+AuthContext.js
 
 pages/
 Home.js
 Cart.js
+Login.js
+Signup.js
+Checkout.js
 ProductDetails.js
 
-context/
-CartContext.js
-
-data/
-products.js
+api/
+productsApi.js
 
 styles/
 style.css
@@ -52,92 +67,7 @@ style.css
 App.js
 index.js
 
-## How to Run the Project
-
-1. Install dependencies
-
-npm install
-
-2. Start the development server
-
-npm start
-
-3. Open the browser
-
-http://localhost:3000
-
-## Purpose of the Project
-
-This project was created as a learning exercise to understand how a basic e-commerce website works using React.
-It demonstrates routing, component structure, global state management, and styling.
-
-## Future Improvements
-
-* Add login and signup page
-* Add search and filter
-* Add product categories
-* Add checkout page
-* Connect to real API
-* Improve UI design
-
-## Author
-
-Rishabh Rai
-
-This project was created for practice and learning React development.
-# React E-Store Project
-
-This project is a simple e-commerce store built using React.
-The goal of this project was to practice React concepts such as components, routing, state management, and Context API while creating a small online store interface.
-
-The application allows users to view products, add them to the cart, remove items, and see the total price.
-It also includes navigation between pages using React Router.
-
-## Features
-
-* Product listing page
-* Product details page
-* Add to cart functionality
-* Remove from cart
-* Total price calculation
-* Navigation using React Router
-* Context API for cart state management
-* Responsive layout using CSS
-* Simple and clean UI design
-
-## Technologies Used
-
-* React
-* JavaScript
-* React Router DOM
-* Context API
-* CSS
-* HTML
-
-## Project Structure
-
-src/
-components/
-Navbar.js
-Footer.js
-ProductCard.js
-
-pages/
-Home.js
-Cart.js
-ProductDetails.js
-
-context/
-CartContext.js
-
-data/
-products.js
-
-styles/
-style.css
-
-App.js
-index.js
+---
 
 ## How to Run the Project
 
@@ -145,31 +75,73 @@ index.js
 
 npm install
 
-2. Start the development server
+2. Install axios (for API)
+
+npm install axios
+
+3. Start the project
 
 npm start
 
-3. Open the browser
+The app will run at:
 
 http://localhost:3000
-<img width="958" height="383" alt="image" src="https://github.com/user-attachments/assets/b58b4470-8a5e-40ab-a68d-19d65e5c619f" />
 
-## Purpose of the Project
+---
 
-This project was created as a learning exercise to understand how a basic e-commerce website works using React.
-It demonstrates routing, component structure, global state management, and styling.
+## How Login Works
+
+This project uses a simple authentication system.
+
+When user logs in:
+
+* Email is saved in LocalStorage
+* User stays logged in after refresh
+* Checkout page is protected
+
+This is not a real backend login, only frontend logic for practice.
+
+---
+
+## How Cart Works
+
+Cart uses Context API and LocalStorage.
+
+* Products stay in cart after refresh
+* Total price is calculated automatically
+* User can remove items
+
+---
+
+## Dark Mode
+
+Dark mode can be toggled from the navbar.
+It changes background, cards, buttons, and text colors.
+
+---
+
+## API Used
+
+Fake Store API
+
+https://fakestoreapi.com/products
+
+Products are loaded using axios.
+
+---
 
 ## Future Improvements
 
-* Add login and signup page
-* Add search and filter
-* Add product categories
-* Add checkout page
-* Connect to real API
-* Improve UI design
+* Real backend authentication
+* Payment integration
+* Better UI design
+* Product ratings
+* Wishlist
+* Admin panel
+
+---
 
 ## Author
 
-Rishabh Rai
-
-This project was created for practice and learning React development.
+Created by Rishabh Rai
+React practice project for learning full frontend workflow.
